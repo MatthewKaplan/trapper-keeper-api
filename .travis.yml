@@ -1,8 +1,12 @@
 language: node_js
 node_js:
-  - "node"
+- node
 services:
-  - postgresql
+- postgresql
 before_script:
-  - psql -c 'CREATE DATABASE travis_test;' -U postgres
-
+- psql -c 'CREATE DATABASE travis_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: EAYGGR6EkYAGRCVscZyqKefhPKAwIRSEkXB+C5VkLJaBWKxJP7w+pzu620/VZqSDnP0RVt1BZl50GBr/WvYHTnvlWv5HMBW3AmNdgAZ93t+FlaWJ0mPVbAyNF6SRF5W32uY+nQgRk8ASJinvTAAnm+pDWqRiF/zPbLa8ant/6E5daziiSWQPYPQN38JkpAVP3gXs4bp6Tj866eMsYY5tuv+TIsZGGVatynw/N3V/CnQOXyTA7/4XogyQJcYsILaZILAxiF0t0OZF5+MESF9TU0Q3C/uhqetOOY//CUjt5P2r8WVZyBkHRZOJUluk1vVxQ/9QFwfpZdxFtoFQyUMNCPDCcK7n3pkOQJzZTqoMX3j7g2vEUlORLueb3hHjORkFCIZxobpHdqrOjQp0Wo0YoCtw0fWhXGUDf90CtjRKbp7OgoxpXGqbcqCqZD6ILZhtw3Uiaq1otqH7VIl0WXSytFp8COxchW4/SNPazD8P+6Sa2RWjYTIhLwg++2wVTWdXuz2FH3iOgHA2/eMszgUxlSq4ydt6vr4MTJqBbeYSmZs31PKr/Aaym9lsxtvu8tUBxAs3DHAp1LMhgvP9E3sY6HAeYH00f/Qw3O5w8tVt0oVTE3DNeqMtWvW66wcTEtO3eMw6d646ebTLoAogOo2585V3Dx1R4I9Opn5ArHgPi7s=
+  app: trapperkeeper-api
